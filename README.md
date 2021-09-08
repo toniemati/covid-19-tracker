@@ -2,4 +2,8 @@
 
 * [x] setup project
 * [x] cleanup project
-* [ ] build header component
+* [x] build header component
+* [x] build infobox
+  * [x] display info
+* [x] build table with info
+* [ ] build linegraph

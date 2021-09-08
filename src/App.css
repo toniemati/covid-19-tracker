@@ -4,6 +4,24 @@
   box-sizing: border-box;
 }
 
+body {
+  background: #f5f6fa;
+}
+
+.app {
+  display: flex;
+  justify-content: space-evenly;
+
+  padding: 20px;
+  gap: 20px;
+}
+
+.app__left {
+  flex: 0.9;
+}
+
+/* .app__right {} */
+
 .app__header {
   display: flex;
   justify-content: space-between;
@@ -12,3 +30,15 @@
 }
 
 /* .app__dropdown {} */
+
+.app__stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 990px) {
+  .app {
+    flex-direction: column;
+  }
+}
