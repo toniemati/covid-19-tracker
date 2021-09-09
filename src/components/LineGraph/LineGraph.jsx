@@ -28,7 +28,7 @@ const options = {
       {
         type: "time",
         time: {
-          format: "MM/DD/YY",
+          format: "DD/MM/YY",
           tooltipFormat: "ll",
         },
       },
@@ -49,19 +49,20 @@ const options = {
   },
 };
 
-const LineGraph = () => {
+const LineGraph = ({ casesType }) => {
+  console.log('case', casesType);
   const [data, setData] = useState([]);
 
   const buildChartData = (data, casesType = 'cases') => {
     const chartData = [];
-    let lastDataPoint;
+    let lastDataPoint = 0;
 
     for (const [key, value] of Object.entries(data[casesType])) {
       if (lastDataPoint) {
-        const newDataPoint = { x: key, y: data[casesType][key] - lastDataPoint };
+        const newDataPoint = { x: key, y: value - lastDataPoint };
         chartData.push(newDataPoint);
       }
-      lastDataPoint = data[casesType][key];
+      lastDataPoint = value;
     }
     return chartData;
   };
@@ -69,11 +70,12 @@ const LineGraph = () => {
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get('https://disease.sh/v3/covid-19/historical/all?lastdays=120');
-      const chartData = buildChartData(data);
+      console.log(data);
+      const chartData = buildChartData(data, casesType);
       setData(chartData);
     };
     getData();
-  }, []);
+  }, [casesType]);
 
   return (
     <div className="lineGraph">
