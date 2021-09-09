@@ -6,4 +6,5 @@
 * [x] build infobox
   * [x] display info
 * [x] build table with info
-* [ ] build linegraph
+* [x] build linegraph
+* [ ] build map

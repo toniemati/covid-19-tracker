@@ -5,7 +5,8 @@ import axios from 'axios';
 import InfoBox from './components/InfoBox/InfoBox';
 import Map from './components/Map/Map';
 import Table from './components/Table/Table';
-import { sortData } from './util';
+import { sortData } from './utills';
+import LineGraph from './components/LineGraph/LineGraph';
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -71,6 +72,7 @@ function App() {
           <Table countries={countries} />
 
           <h3>Wordwide new cases</h3>
+          <LineGraph />
         </CardContent>
       </Card>
 
